@@ -17,6 +17,7 @@ class App extends React.Component {
           city: 'Jacksonville',
           state: 'FL',
           zip_code: '32211',
+          is_displayed: false,
         },
       ],
     };
@@ -35,12 +36,26 @@ class App extends React.Component {
           city: newContact.city,
           state: newContact.state,
           zip_code: newContact.zip_code,
+          is_displayed: false,
 
         },
       ],
     });
   }
 
+  handleDisplayToggle = (contactIndexToToggle)=> {
+    const newContacts = this.state.contacts.map((contact, currentIndex) =>{
+      
+      if (currentIndex === contactIndexToToggle) {
+        return {
+          ...contact,
+          is_displayed: true,
+        };
+      }
+      return contact;
+    });
+      this.setState({ contacts: newContacts })
+  };
 
   render() {
     return (
@@ -50,6 +65,7 @@ class App extends React.Component {
         />
         <ContactList 
           contacts={this.state.contacts}
+          toggleDisplayStatus={this.handleDisplayToggle}
         />
       </div>
     );
