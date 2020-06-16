@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import ContactList from '.components/ContactList'
 import ContactForm from './components/ContactForm'
+import ContactList from './components/ContactList'
 
 class App extends React.Component {
   constructor() {
@@ -12,8 +12,8 @@ class App extends React.Component {
         {
           name: 'John Doe',
           email: 'jd@email.com',
-          phone_number: '123-4567',
-          address: '122 Second Street',
+          phone_number: '123-1234',
+          address: '123 2nd Street',
           city: 'Jacksonville',
           state: 'FL',
           zip_code: '32211',
@@ -44,15 +44,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="contact-form">
-          <ContactForm
+      <div>
+        <ContactForm
             onNewContact={this.state.addNewContact}
-          />
-          <ContactList
-            contact={this.state.contacts}
-          />
-        </div>
+        />
+        <ContactList 
+          contacts={this.state.contacts}
+        />
       </div>
     );
   }

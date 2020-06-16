@@ -51,7 +51,7 @@ export default class ContactForm extends Component {
     render(){
         return (
             <div>
-                <form onSubmit={this.handleSubmit} >
+                <form onSubmit={()=>this.handleSubmit} >
                 <div>
                     <label htmlFor="name">Name</label>
                     <input type="text"name="name" id="name_input" onChange={(e)=> this.updateState(e, 'name')} />
